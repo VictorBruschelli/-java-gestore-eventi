@@ -2,15 +2,28 @@ package org.java.gestore.eventi;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Instant;
 import java.util.Date;
+import java.util.Scanner;
 
 public class testGestoreDate {
 
 	public static void main(String[] args) throws ParseException{
 		
+		// chiedo all utete di inserire la data 
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("inserisci la data per levento 'dd-MM-yyyy'");
+		String dataEvento = scanner.nextLine();
+		//
+		
+		Instant realDate;
+		System.out.println(realDate + " questa è la data attuale ");
+		
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        Date date1 = sdf.parse("05-12-2025");
-        Date date2 = sdf.parse("10-12-2028");
+        Date date1 = sdf.parse(dataEvento);
+        Date date2 = sdf.parse(realDate);
+        sdf.format(realDate);
 
         System.out.println("date1 : " + sdf.format(date1));
         System.out.println("date2 : " + sdf.format(date2));

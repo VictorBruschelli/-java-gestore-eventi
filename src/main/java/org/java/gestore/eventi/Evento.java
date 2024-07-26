@@ -18,14 +18,39 @@ public class Evento {
 	}
 	
 
+	public String getTitolo() {
+		return titolo;
+	}
+
+	public void setTitolo(String titolo) {
+		this.titolo = titolo;
+	}
+
+	public Date getDataInserita() {
+		return dataInserita;
+	}
+
+	public void setDataInserita(Date dataInserita) {
+		this.dataInserita = dataInserita;
+	}
+
+	public int getPostiTot() {
+		return postiTot;
+	}
+
+	public void setPostiTot(int postiTot) {
+		this.postiTot = postiTot;
+	}
+
+	public int getPostiPrenotati() {
+		return postiPrenotati;
+	}
+
+
+
+
+
 	public static  LocalDate realDate = LocalDate.now(); // Create a date object
 	
-	public static void controlloData() {
-	if (!realDate.isBefore(dataInserita)) {
-	    System.out.println("la data è gia passata");
-	}
-	System.out.println(dataInserita);
-	
-	}
 		}
 	
