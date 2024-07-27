@@ -16,18 +16,12 @@ public class testGestoreDate {
 		System.out.println("inserisci la data per levento 'dd-MM-yyyy'");
 		String dataEvento = scanner.nextLine();
 		//
-		
-		//LocalDate realDate = LocalDate.now();
-		//System.out.println(realDate + " questa è la data attuale ");
+		//dichiaro la data in tempo reale
 		  LocalDate realDate = LocalDate.now();
-		  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //Formattatore per la stampa e l'analisi di oggetti data-ora 
 		  String text = realDate.format(formatter);
-		//  LocalDate parsedDate = LocalDate.parse(text, formatter);
-		  
-		 // System.out.println(realDate);
-		 
-		
-		
+
+		//comparatore per le date 
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         Date date1 = sdf.parse(dataEvento);
         Date date2 = sdf.parse(text);
@@ -48,8 +42,8 @@ public class testGestoreDate {
             System.out.println("How to get here?");
         }
         
-        //devo fare in modo che una data sia data dal user con scanner e laltra data sia quella corrente 
-        //in modo da comparare le due date e vedere se "l'evento è passato o no"
+        //prossimo step 
+        //fare in  modo che arrvi un avviso allutente se la sua data inserita è gia passata
 
 
 	}
