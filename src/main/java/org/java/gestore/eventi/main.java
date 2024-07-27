@@ -9,8 +9,8 @@ public class main {
 	public static void main(String[] args) throws ParseException {
 		// TODO Auto-generated method stub
 		
-		Evento concerto = new Evento("Kris floyd", "10-12-2023", 80000);
-		concerto.verificaData();
+		Evento concerto = new Evento("Kris floyd", "10-12-2015", 80000);
+		
 
 		
 		

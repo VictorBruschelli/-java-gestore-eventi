@@ -14,16 +14,17 @@ public class Evento {
 	private int postiPrenotati;
 	
 	
-
-	Evento(String titolo, String dataInserita, int postiTot){
+// creo il costruttore
+	 Evento(String titolo, String dataInserita, int postiTot) throws ParseException{
 		this.titolo = titolo;
 		this.dataInserita = dataInserita;
 		this.postiTot = postiTot;
 		this.postiPrenotati = 0;
+		Evento.verificaData(); // in questa maniera quando creo il costruttore il metodo verifica automaticamente la data 
 	}
 
 	
-	
+	// get e set
 	public String getTitolo() {
 		return titolo;
 	}
@@ -32,7 +33,7 @@ public class Evento {
 		this.titolo = titolo;
 	}
 
-	public String getDataInserita() {
+	public static String getDataInserita() {
 		return dataInserita;
 	}
 
@@ -52,9 +53,9 @@ public class Evento {
 		return postiPrenotati;
 	}
 	
-	
+	//metodo per comparare la data dentro il costruttore con la data reale.
 	public static void verificaData() throws ParseException {
-		//dichiaro la data in tempo reale
+		//dichiaro la data in tempo reale e la formatto in testo
 		  LocalDate realDate = LocalDate.now();
 		  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //Formattatore per la stampa e l'analisi di oggetti data-ora 
 		  String text = realDate.format(formatter);
