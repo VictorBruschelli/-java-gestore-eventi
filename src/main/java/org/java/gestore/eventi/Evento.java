@@ -1,11 +1,6 @@
 package org.java.gestore.eventi;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-
 
 public class Evento {
 	private String titolo;
@@ -20,7 +15,7 @@ public class Evento {
 		this.dataInserita = dataInserita;
 		this.postiTot = postiTot;
 		this.postiPrenotati = 0;
-		Evento.verificaData(); // in questa maniera quando creo il costruttore il metodo verifica automaticamente la data 
+		utilMetod.verificaData(); // in questa maniera quando creo il costruttore il metodo verifica automaticamente la data 
 	}
 
 	
@@ -53,26 +48,25 @@ public class Evento {
 		return postiPrenotati;
 	}
 	
-	//metodo per comparare la data dentro il costruttore con la data reale.
-	public static void verificaData() throws ParseException {
-		//dichiaro la data in tempo reale e la formatto in testo
-		  LocalDate realDate = LocalDate.now();
-		  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //Formattatore per la stampa e l'analisi di oggetti data-ora 
-		  String text = realDate.format(formatter);
-
-		//comparatore per le date 
-    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-    Date date1 = sdf.parse(dataInserita);
-    Date date2 = sdf.parse(text);
-
-    int result = date1.compareTo(date2);
-
-	    if (result < 0) {
-	        System.out.println("la data inserita è gia passata, perfavore inserisci una data valida.");
-	    } 
-		
-
-	}
+	
+//	//metodo per comparare la data dentro il costruttore con la data reale.
+//	public static void verificaData() throws ParseException {
+//		//dichiaro la data in tempo reale e la formatto in testo
+//		  LocalDate realDate = LocalDate.now();
+//		  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //Formattatore per la stampa e l'analisi di oggetti data-ora 
+//		  String text = realDate.format(formatter);
+//
+//		//comparatore per le date 
+//    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+//    Date date1 = sdf.parse(dataInserita);
+//    Date date2 = sdf.parse(text);
+//
+//    int result = date1.compareTo(date2);
+//
+//	    if (result < 0) {
+//	        System.out.println("la data inserita è gia passata, perfavore inserisci una data valida.");
+//	    } 
+//	}
 
 	
 		}
