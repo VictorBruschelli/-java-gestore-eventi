@@ -11,7 +11,7 @@ import java.util.Date;
 	public class utilMethods extends Evento {
 	
 		utilMethods(String titolo, String dataInserita, int postiTot) throws ParseException {
-			//super(titolo, dataInserita, postiTot);
+			super(titolo, dataInserita, postiTot);
 			
 		}
 
@@ -36,11 +36,10 @@ import java.util.Date;
 		
 //metodo per conferire se il numero di posti totali dentro il costruttore è positivo
 		public static void verificaPostiTot() {
-		if (!(getPostiTot() > 0)) {
+		if (getPostiTot() <= 0) {
 		System.out.println("atenzione! è necessario che il numero totale di posti disponibili sia maggiore di 0");
 		   }
 		}
-	
 	
 	
 //// metodo per verificare se la data inserita dall utente è valida.
