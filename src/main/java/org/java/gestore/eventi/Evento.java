@@ -120,12 +120,22 @@ public class Evento {
 			 			
 			
 		public Boolean prenota(int aggiungi) throws ParseException {
-			if (postiTot > this.postiPrenotati + aggiungi && verificaData(this.dataInserita) ) {
+			if (postiTot >= this.postiPrenotati + aggiungi && verificaData(this.dataInserita) ) {
 				this.postiPrenotati = aggiungi + this.postiPrenotati;
 				return true;
 			}else {
 				return false;
 			}
+		}
+			
+			public Boolean disdici(int elimina) throws ParseException {
+				if (this.postiPrenotati >= elimina && verificaData(this.dataInserita) ) {
+					this.postiPrenotati = this.postiPrenotati - elimina;
+					return true;
+				}else {
+					return false;
+				}
+			
 				
 			
 		

@@ -92,6 +92,51 @@ public class main {
 					}
 		    	}
 			}
+		}
+		
+		
+		
+//chiedo all'utente se vuole fare cancelazioni e quante vuole farne.
+		String eseguiDisdici = "xx";
+		while (true) {
+			System.out.println("vuoi disdire una prenotazione? (si/no)");
+			eseguiDisdici = scanner.nextLine();
+			
+			
+			if (eseguiDisdici.equals("no")) {
+				break;
+			}else if (eseguiDisdici.equals("si")){	
+				break;
+			}else {
+				System.out.println("non ho capito");
+			}
+		}
+			
+		if (eseguiDisdici.equals("no")) {
+			System.out.println("ok, arrivederci!");	
+		}else {	
+			int elimina = 0;
+			Boolean disdiciAvvenuta = false;
+			postiValidi = false;
+			while(!postiValidi || !disdiciAvvenuta) {
+				System.out.println("Inserisci il numero totale di posti che vuoi disdire: ");
+				elimina = scanner.nextInt();
+				scanner.nextLine();
+
+				if (elimina <= 0) {
+					System.out.println("attenzione! è necessario che il numero sia maggiore di 0. ");
+		    	} else {
+		    		postiValidi = true;
+		    	    disdiciAvvenuta = concerto.disdici(elimina);
+					
+					if (disdiciAvvenuta){
+						System.out.println("la tua disdetta è andata a buon fine: " + "-" + elimina + " posti disdetti / " + (concerto.getPostiTot() - concerto.getPostiPrenotati()) + " posti disponibili");	
+						
+					}else {
+						System.out.println("mi dispiace, c'è stato un errore con la disdetta.");
+					}
+		    	}
+			}
 			
 			
 			
