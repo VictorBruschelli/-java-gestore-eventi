@@ -1,12 +1,16 @@
 package org.java.gestore.eventi;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Evento {
-	private static String titolo;
-	private static String dataInserita;
-	private static int postiTot;
+	private String titolo;
+	private String dataInserita;
+	private int postiTot;
 	private int postiPrenotati;
 	
 	
@@ -37,7 +41,7 @@ public class Evento {
 	
 		
 // get e set
-		public static String getTitolo() {
+		public String getTitolo() {
 			return titolo;
 		}
 	
@@ -45,7 +49,7 @@ public class Evento {
 			this.titolo = titolo;
 		}
 	
-		public static String getDataInserita() {
+		public String getDataInserita() {
 			return dataInserita;
 		}
 	
@@ -53,7 +57,7 @@ public class Evento {
 			this.dataInserita = dataInserita;
 		}
 	
-		public static int getPostiTot() {
+		public int getPostiTot() {
 			return postiTot;
 		}
 	
@@ -61,41 +65,71 @@ public class Evento {
 			return postiPrenotati;
 		}
 		
-//metodo per prendere dal terminale i valori delle propieta per inserirle nel costruttore.		
-		public static String valoreTitolo() {
-			Scanner scanner = new Scanner(System.in);
-			System.out.println("inserisci il titolo dell'evento che desideri fare: ");
-			titolo = scanner.nextLine();
-			return titolo;
-		}
 		
-		public static String valoreData() throws ParseException {
-			Scanner scanner = new Scanner(System.in);
-			System.out.println("inserisci la data dell'evento utilizzando il modello dd-MM-yyyy: ");
-			dataInserita = scanner.nextLine();
-			utilMethods.verificaData(); // in questa maniera quando creo il costruttore il metodo verifica automaticamente la data 
-			return dataInserita;
-		}
 		
-		public static int valorePosti() {
-			Scanner scanner = new Scanner(System.in);
-			System.out.println("inserisci il numero totale di posti disponibili per l'evento: ");
-			postiTot = scanner.nextInt();
-			utilMethods.verificaPostiTot(); // metodo che verifica se i postiTot siano positivi
-			return postiTot;
-			
-		}
+////metodo per prendere dal terminale i valori delle propieta per inserirle nel costruttore.		
+//		public static String valoreTitolo() {
+//			Scanner scanner = new Scanner(System.in);
+//			System.out.println("inserisci il titolo dell'evento che desideri fare: ");
+//			titolo = scanner.nextLine();
+//			return titolo;
+//		}
+//		
+//		public static String valoreData() throws ParseException {
+//			Scanner scanner = new Scanner(System.in);
+//			System.out.println("inserisci la data dell'evento utilizzando il modello dd-MM-yyyy: ");
+//			dataInserita = scanner.nextLine();
+//			utilMethods.verificaData(); // in questa maniera quando creo il costruttore il metodo verifica automaticamente la data 
+//			return dataInserita;
+//		}
+//		
+//		public static int valorePosti() {
+//			Scanner scanner = new Scanner(System.in);
+//			System.out.println("inserisci il numero totale di posti disponibili per l'evento: ");
+//			postiTot = scanner.nextInt();
+//			utilMethods.verificaPostiTot(); // metodo che verifica se i postiTot siano positivi
+//			return postiTot;
+//			
+//		}
 		
 		@Override
 		public String toString() {
-			return (dataInserita + " - " + titolo);
+			return (dataInserita + " - " + titolo);  //toString non serve per stampare a video ma per salvare valori in una variabile
+		}
+		
+//metodo per comparare le date
+		public static Boolean verificaData(String dataInserita) throws ParseException {
+			//dichiaro la data in tempo reale e la formatto in testo
+			LocalDate realDate = LocalDate.now();
+			DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //Formattatore per la stampa e l'analisi di oggetti data-ora 
+			String text = realDate.format(formatter);
+
+			//comparatore per le date 
+		    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		    Date dateUtente = sdf.parse(dataInserita);
+		    Date dateAttuale = sdf.parse(text);
+		
+		    int result = dateUtente.compareTo(dateAttuale);
+
+	    	if (result < 0) { // se la data inserita dall'utente è gia passata comparandola a quella attuale allora
+	    		return false;
+		    }	else {
+		    	return true;
+		    }
 		}
 
-
-
-
-		
-// creare un array per posti prenotati che parte da 0 in modo da creare un metodo che aggiunge un posto e un metodo che disdice un posto
+// metodo per validare la prenotazione per incrementarlo dentro while 		
+		public Boolean validitaPrenotazione(int prenotazione) {
+			int postiRichiesti =  this.postiPrenotati + prenotazione ;
+			if (postiRichiesti < 0) {
+				return false;
+				} return true;
+			 			
+			
+			
+		//aggiunge  ai posti prenotati il vlore che mi fornisce lutente atraverso uno scanner (il valore denro lo scanner viene preso dal main in una 
+		//		variabile int postiRichiesti)
+		}
 
 	
 }

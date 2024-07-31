@@ -24,7 +24,7 @@ import java.util.Date;
 
 		//comparatore per le date 
 	    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-	    Date dateUtente = sdf.parse(getDataInserita());
+	    Date dateUtente = sdf.parse(dataInserita);
 	    Date dateAttuale = sdf.parse(text);
 	
 	    int result = dateUtente.compareTo(dateAttuale);
