@@ -117,16 +117,18 @@ public class Evento {
 		    	return true;
 		    }
 		}
-
-// metodo per validare la prenotazione per incrementarlo dentro while 		
-		public Boolean validitaPrenotazione(int prenotazione) {
-			int postiRichiesti =  this.postiPrenotati + prenotazione ;
-			if (postiRichiesti < 0) {
-				return false;
-				} return true;
 			 			
 			
+		public Boolean prenota(int aggiungi) throws ParseException {
+			if (postiTot > this.postiPrenotati + aggiungi && verificaData(this.dataInserita) ) {
+				this.postiPrenotati = aggiungi + this.postiPrenotati;
+				return true;
+			}else {
+				return false;
+			}
+				
 			
+		
 		//aggiunge  ai posti prenotati il vlore che mi fornisce lutente atraverso uno scanner (il valore denro lo scanner viene preso dal main in una 
 		//		variabile int postiRichiesti)
 		}

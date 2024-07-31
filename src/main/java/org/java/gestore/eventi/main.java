@@ -70,21 +70,33 @@ public class main {
 		if (eseguiPrenotazione.equals("no")) {
 			System.out.println("ok, arrivederci!");	
 		}else {	
+			int aggiungi = 0;
+			Boolean prenotazioneAvvenuta = false;
 			postiValidi = false;
-			while(!postiValidi) {
+			while(!postiValidi || !prenotazioneAvvenuta) {
 				System.out.println("Inserisci il numero totale di posti che vuoi prenotare: ");
-				postiTot = scanner.nextInt();
+				aggiungi = scanner.nextInt();
 				scanner.nextLine();
 
-				if (postiTot <= 0) {
+				if (aggiungi <= 0) {
 					System.out.println("attenzione! è necessario che il numero sia maggiore di 0. ");
 		    	} else {
 		    		postiValidi = true;
+		    	    prenotazioneAvvenuta = concerto.prenota(aggiungi);
+					
+					if (prenotazioneAvvenuta){
+						System.out.println("la tua prenotazione è andata a buon fine: " + aggiungi + " posti prenotati / " + (concerto.getPostiTot() - concerto.getPostiPrenotati()) + " posti disponibili");	
+						
+					}else {
+						System.out.println("mi dispiace, c'è stato un errore con la prenotazione.");
+					}
 		    	}
 			}
+			
+			
+			
 		}
-		System.out.println(postiTot);
-		
+	
 
 		
 	}
