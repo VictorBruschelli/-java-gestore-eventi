@@ -1,23 +1,22 @@
 package org.java.gestore.eventi;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.time.format.DateTimeParseException;
+import java.text.NumberFormat;
+import java.util.Locale;
+import java.util.Currency;
 
 
 public class Concerto extends Evento {
 	private String ora;
 	private double prezzo;
 
-	public Concerto(String titolo, String dataInserita, int postiTot, String oraInserita, double prezzo) throws ParseException {
+	public Concerto(String titolo, String dataInserita, int postiTot, String oraInserita, double prezzoInserito) throws ParseException {
 		super(titolo, dataInserita, postiTot);
 		
 		this.ora = oraInserita;
-		this.prezzo = prezzo;
+		this.prezzo = prezzoInserito;
 	
 	}
 
@@ -45,20 +44,20 @@ public class Concerto extends Evento {
 	 LocalTime localTime = LocalTime.parse("22:40");
 		DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_TIME;
 		 LocalTime oraUtente = LocalTime.parse(oraInserita, formatter);
-
-
-
-		
-		// print the output
-//		System.out.println("LocalTime : " + localTime1);
-           	
 	}
+
+//metodo per formattare il prezzo
+     public static void formattaPrezzo(double prezzoInserito){
+    	   String.format("%,.2f", prezzoInserito);
+     }
+     
+	
 
 
 
 	@Override
 	public String toString() {
-		return (dataInserita + " " + ora + " - " + titolo + " " + prezzo);  //toString non serve per stampare a video ma per salvare valori in una variabile
+		return (dataInserita + " " + ora + " - " + titolo + " " + prezzo + "€");  //toString non serve per stampare a video ma per salvare valori in una variabile
 	}
 
 	

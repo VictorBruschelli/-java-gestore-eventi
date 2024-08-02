@@ -1,6 +1,5 @@
 package org.java.gestore.eventi;
 
-//import java.security.PublicKey;
 import java.text.ParseException;
 //import java.text.SimpleDateFormat;
 //import java.time.LocalDate;
@@ -12,7 +11,7 @@ import java.util.Scanner;
 
 public class main {
 
-	public static void main(String[] args) throws ParseException {
+	public static void main(String[] args) throws ParseException  {
 		
 
 		Scanner scanner = new Scanner(System.in);
@@ -169,36 +168,39 @@ public class main {
 			    	}
 				}
 				
-	   //estraendo l'ora del concerto e eseguendo la formatazzione
-				String oraInserita = "HH:mm";
-					System.out.println("Inserisci l'ora del concerto usando il modello 'HH:mm': ");
-		            oraInserita = scanner.nextLine();
-			    	Concerto.formattaTime(oraInserita);
+//estraendo l'ora del concerto e eseguendo la formatazzione
+		String oraInserita = "HH:mm";
+		System.out.println("Inserisci l'ora del concerto usando il modello 'HH:mm': ");
+        oraInserita = scanner.nextLine();
+    	Concerto.formattaTime(oraInserita);
 
 				
 				
-		//prendo il valore dei posti totali dall'utente		
+//prendo il valore dei posti totali dall'utente		
 
-				postiValidi = false;
-				postiTot = 0;
-				while(!postiValidi) {
-					System.out.println("Inserisci il numero totale di posti disponibili per il concerto: ");
-					postiTot = scanner.nextInt();
-					scanner.nextLine();
+		postiValidi = false;
+		postiTot = 0;
+		while(!postiValidi) {
+			System.out.println("Inserisci il numero totale di posti disponibili per il concerto: ");
+			postiTot = scanner.nextInt();
+			scanner.nextLine();
 
-					if (postiTot <= 0) {
-						System.out.println("\n attenzione! è necessario che il numero totale di posti disponibili sia maggiore di 0. ");
-			    	} else {
-			    		postiValidi = true;
-			    	}
-				}	
-		
-	
+			if (postiTot <= 0) {
+				System.out.println("\n attenzione! è necessario che il numero totale di posti disponibili sia maggiore di 0. ");
+	    	} else {
+	    		postiValidi = true;
+	    	}
+		}	
+
+//valorizzo prezzoInserito
+		double prezzoInserito;
+		System.out.println("inserisci il prezzo per il concerto: ");
+        prezzoInserito = scanner.nextDouble();
+    	Concerto.formattaPrezzo(prezzoInserito);
 		
 
-		double prezzo = 0.0;
 		
-		Concerto concerto = new Concerto(titolo, dataInserita, postiTot, oraInserita, prezzo);
+		Concerto concerto = new Concerto(titolo, dataInserita, postiTot, oraInserita, prezzoInserito);
 
 		
 		//chiedo all'utente se vuole fare prenotazioni e quante vuole farne.
