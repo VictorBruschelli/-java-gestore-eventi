@@ -5,17 +5,16 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.Scanner;
 
 public class Evento {
-	private String titolo;
-	private String dataInserita;
-	private int postiTot;
-	private int postiPrenotati;
+	protected String titolo;
+	protected String dataInserita;
+	protected int postiTot;
+	protected int postiPrenotati;
 	
 	
  //costruttore che viene compilato alla creazione.
-	 Evento(String titolo, String dataInserita, int postiTot) throws ParseException{
+	public  Evento(String titolo, String dataInserita, int postiTot) throws ParseException{
 		this.titolo = titolo;
 		this.dataInserita = dataInserita;
 		this.postiTot = postiTot;

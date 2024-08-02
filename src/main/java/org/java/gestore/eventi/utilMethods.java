@@ -15,32 +15,32 @@ import java.util.Date;
 			
 		}
 
-//metodo per comparare la data dentro il costruttore con la data reale.
-		public static void verificaData() throws ParseException {
-		//dichiaro la data in tempo reale e la formatto in testo
-		  LocalDate realDate = LocalDate.now();
-		  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //Formattatore per la stampa e l'analisi di oggetti data-ora 
-		  String text = realDate.format(formatter);
-
-		//comparatore per le date 
-	    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-	    Date dateUtente = sdf.parse(dataInserita);
-	    Date dateAttuale = sdf.parse(text);
-	
-	    int result = dateUtente.compareTo(dateAttuale);
-
-    	if (result < 0) {
-        System.out.println("la data inserita per l'evento è gia passata, perfavore inserisci una data valida.");
-		    }			 
-		}
+////metodo per comparare la data dentro il costruttore con la data reale.
+//		public static void verificaData() throws ParseException {
+//		//dichiaro la data in tempo reale e la formatto in testo
+//		  LocalDate realDate = LocalDate.now();
+//		  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy"); //Formattatore per la stampa e l'analisi di oggetti data-ora 
+//		  String text = realDate.format(formatter);
+//
+//		//comparatore per le date 
+//	    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+//	    Date dateUtente = sdf.parse(dataInserita);
+//	    Date dateAttuale = sdf.parse(text);
+//	
+//	    int result = dateUtente.compareTo(dateAttuale);
+//
+//    	if (result < 0) {
+//        System.out.println("la data inserita per l'evento è gia passata, perfavore inserisci una data valida.");
+//		    }			 
+//		}
 		
-//metodo per conferire se il numero di posti totali dentro il costruttore è positivo
-		public static void verificaPostiTot() {
-		if (getPostiTot() <= 0) {
-		System.out.println("atenzione! è necessario che il numero totale di posti disponibili sia maggiore di 0");
-		   }
-		}
-	
+////metodo per conferire se il numero di posti totali dentro il costruttore è positivo
+//		public static void verificaPostiTot() {
+//		if (getPostiTot() <= 0) {
+//		System.out.println("atenzione! è necessario che il numero totale di posti disponibili sia maggiore di 0");
+//		   }
+//		}
+//	
 	
 //// metodo per verificare se la data inserita dall utente è valida.
 //		public static void dataUtente() throws ParseException {
