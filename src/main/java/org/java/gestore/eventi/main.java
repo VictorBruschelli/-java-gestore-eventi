@@ -3,7 +3,7 @@ package org.java.gestore.eventi;
 import java.text.ParseException;
 //import java.text.SimpleDateFormat;
 //import java.time.LocalDate;
-//import java.time.LocalTime;
+import java.time.LocalTime;
 //import java.time.format.DateTimeFormatter;
 //import java.util.ArrayList;
 //import java.util.Date;
@@ -172,7 +172,7 @@ public class main {
 		String oraInserita = "HH:mm";
 		System.out.println("Inserisci l'ora del concerto usando il modello 'HH:mm': ");
         oraInserita = scanner.nextLine();
-    	Concerto.formattaTime(oraInserita);
+    	LocalTime ora = Concerto.formattaTime(oraInserita);
 
 				
 				
@@ -196,11 +196,12 @@ public class main {
 		double prezzoInserito;
 		System.out.println("inserisci il prezzo per il concerto: ");
         prezzoInserito = scanner.nextDouble();
-    	Concerto.formattaPrezzo(prezzoInserito);
+        String prezzo = Concerto.formattaPrezzo(prezzoInserito);
+        scanner.nextLine();
 		
 
 		
-		Concerto concerto = new Concerto(titolo, dataInserita, postiTot, oraInserita, prezzoInserito);
+		Concerto concerto = new Concerto(titolo, dataInserita, postiTot, oraInserita, prezzo);
 
 		
 		//chiedo all'utente se vuole fare prenotazioni e quante vuole farne.

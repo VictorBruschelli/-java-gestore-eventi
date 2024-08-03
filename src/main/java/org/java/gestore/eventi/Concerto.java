@@ -3,20 +3,17 @@ package org.java.gestore.eventi;
 import java.text.ParseException;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.text.NumberFormat;
-import java.util.Locale;
-import java.util.Currency;
 
 
 public class Concerto extends Evento {
 	private String ora;
-	private double prezzo;
+	private String prezzo;
 
-	public Concerto(String titolo, String dataInserita, int postiTot, String oraInserita, double prezzoInserito) throws ParseException {
+	public Concerto(String titolo, String dataInserita, int postiTot, String ora, String prezzo) throws ParseException {
 		super(titolo, dataInserita, postiTot);
 		
-		this.ora = oraInserita;
-		this.prezzo = prezzoInserito;
+		this.ora = ora;
+		this.prezzo = prezzo;
 	
 	}
 
@@ -30,25 +27,26 @@ public class Concerto extends Evento {
 	}
 
 
-	public double getPrezzo() {
+	public String getPrezzo() {
 		return prezzo;
 	}
 
 
-	public void setPrezzo(double prezzo) {
+	public void setPrezzo(String prezzo) {
 		this.prezzo = prezzo;
 	}
 	
 //metodo per formattare l'ora
-	public static void formattaTime(String oraInserita) {
+	public static LocalTime formattaTime(String oraInserita) {
 	 LocalTime localTime = LocalTime.parse("22:40");
 		DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_TIME;
-		 LocalTime oraUtente = LocalTime.parse(oraInserita, formatter);
+		LocalTime oraFormattata = LocalTime.parse(oraInserita, formatter);
+		return oraFormattata;
 	}
 
 //metodo per formattare il prezzo
-     public static void formattaPrezzo(double prezzoInserito){
-    	   String.format("%,.2f", prezzoInserito);
+     public static String formattaPrezzo(double prezzoInserito){
+     return String.format("%,.2f", prezzoInserito);
      }
      
 	
