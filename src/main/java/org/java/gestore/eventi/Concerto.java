@@ -48,24 +48,12 @@ public class Concerto extends Evento {
      public static String formattaPrezzo(double prezzoInserito){
      return String.format("%,.2f", prezzoInserito);
      }
+      
      
-	
-
-
-
 	@Override
 	public String toString() {
 		return (dataInserita + " " + ora + " - " + titolo + " " + prezzo + "€");  //toString non serve per stampare a video ma per salvare valori in una variabile
 	}
 
-	
-	
-	
-
-	
-//    static public String formattaData(LocalTime codice) {
-//    	String paddedCode = String.format("%08d", codice);
-//    	return paddedCode;
-//    }
 	
 }
